@@ -24,19 +24,19 @@ function getRootProperty(object, val) {
   }
 }
 
-// const object = {
-//     "one": {
-//         "nest1": {
-//             "val1": [9, 34, 92, 100]
-//          }
-//     },
-//     "2f7": {
-//         "n1": [10, 92, 53, 71],
-//         "n2": [82, 34, 6, 19]
-//     }
-// };
+const firstObj = {
+    "one": {
+        "nest1": {
+            "val1": [9, 34, 92, 100]
+         }
+    },
+    "2f7": {
+        "n1": [10, 92, 53, 71],
+        "n2": [82, 34, 6, 19]
+    }
+};
 
-const object = {
+const secondObj = {
     "r1n": {
         "mkg": {
             "zma": [21, 45, 66, 111],
@@ -55,5 +55,8 @@ const object = {
     }
 }
 
-var output = getRootProperty(object, 29)
-console.log(output)
+//returns null
+var firstOutput = getRootProperty(firstObj, 1000)
+//returns  'fik'
+var secondOutput = getRootProperty(secondObj, 29)
+console.log(`First Output: ${firstOutput}\nSecond Output: ${secondOutput}`)
