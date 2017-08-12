@@ -60,3 +60,30 @@ var firstOutput = getRootProperty(firstObj, 1000)
 //returns  'fik'
 var secondOutput = getRootProperty(secondObj, 29)
 console.log(`First Output: ${firstOutput}\nSecond Output: ${secondOutput}`)
+
+function findRootProperty(o,x,p = this){
+  return Object.keys(o).reduce((r,k) => Array.isArray(o[k]) ? o[k].includes(x)
+          ? r.concat(k) : r
+          : r.concat(findRootProperty(o[k],x,k)),[]).map(q => p === this ? q : p );
+}
+
+const object3 = {
+    "r1n": {
+        "mkg": {
+            "zma": [21, 45, 66, 111],
+            "mii": {
+                "ltf": [2, 5, 3, 9, 21]
+             },
+             "fv": [1, 3, 6, 9]
+         },
+         "rmk": {
+             "amr": [50, 50, 100, 116, 150, 250]
+         }
+    },
+    "fik": {
+        "er": [592, 92, 32, 13],
+        "gp": [12, 34, 116, 29, 250]
+    }
+};
+
+console.log(findRootProperty(object3,250))
